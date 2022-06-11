@@ -1,14 +1,17 @@
 import * as React from 'react';
 import { useState } from "react";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import '../App.css'
 import '../table.css'
 import {saveProduct} from '../actions/productActions'
 import { addProductInReducer } from '../state/productSlice';
+import { stateTypeRedux } from '../state/Store';
 
 
 
 const ProductForm = () => {
+
+  const providers = useSelector((state:stateTypeRedux) => state.providerState.providers)
 
   const dispatch = useDispatch()
 
@@ -52,13 +55,19 @@ const ProductForm = () => {
   }
   return (
     <div>
+      
       <form onSubmit={(e)=> addProduct(e)}>
         <input type="text" placeholder='name' onChange={(e)=>setName(e.target.value)} value={name} />
         <input type="text" placeholder='description' onChange={(e)=>setDescription(e.target.value)} value={description} />
         <input type="number" placeholder='MaxUnits' onChange={(e)=>setMaxUnits(e.target.valueAsNumber)} value={maxUnits} />
         <input type="number" placeholder='MinUnits' onChange={(e)=>setMinUnits(e.target.valueAsNumber)} value={minUnits} />
         <input type="number" placeholder='price' onChange={(e)=>setPrice(e.target.valueAsNumber)} value={price} />
-        <input type="text" placeholder='providerName' onChange={(e)=>setProviderName(e.target.value)} value={providerName} />
+        <select onChange={(e)=>setProviderName(e.target.value)}  name="providerName">
+          {
+            providers.map(provider => <option value={provider.name} key={provider.id}>{provider.name}</option> )
+          }
+        </select>
+        
         
         <button className="delete"> add Product</button>
       </form>

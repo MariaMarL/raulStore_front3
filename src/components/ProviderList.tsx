@@ -22,7 +22,6 @@ return (
         <th>Name</th>
         <th>Dni</th>
         <th>Phone</th>
-        <th>Phone</th>
       </tr>
     </tbody>
       {

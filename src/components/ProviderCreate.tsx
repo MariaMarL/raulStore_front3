@@ -57,7 +57,7 @@ const Form = () => {
                 onChange={(e)=> SetPhone(e.target.value)}
                 value={phone}
               />
-              <button>add Provider</button>
+              <button className="delete">add Provider</button>
           </form>
       </div>
   );
