@@ -1,0 +1,44 @@
+*{
+  margin: auto;
+}
+.link{
+    color: white;
+    text-decoration: none;
+    padding: 0 2vh;
+    font-size: 3vh;
+}
+
+.link:hover{
+    background-color: gray;
+}
+
+h1{
+  color: rgb(55, 33, 139);
+  text-align: center;
+  margin: 5vh 0vh 6vh;
+  font-size: 3vh;
+}
+
+.navbar{
+    background-color: rgb(42, 110, 165);
+    display: flex;
+    justify-content: center;
+    height: 10vh;
+    align-items: center;
+  }
+  
+  .footer{
+    background-color: rgb(131, 131, 204);
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family:cursive;
+  }
+  .main_content{
+    height: 75vh;
+    margin: 3vh 3vh;
+    text-align: center;
+  }
+  
