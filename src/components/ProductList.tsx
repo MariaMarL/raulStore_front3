@@ -13,12 +13,6 @@ const ProductList = () => {
     const dispatch = useDispatch()
 
     const products = useSelector((state:stateTypeRedux) =>state.productState.products)
- 
-    useEffect(()=>{
-        getAllProducts().then(products => {
-          dispatch(getAllProductsInReducer(products))
-        })
-      }, [products])
 
     return (
         
