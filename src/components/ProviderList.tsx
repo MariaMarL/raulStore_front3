@@ -28,10 +28,7 @@ return (
         providers.map((provider) => 
         <Provider key={provider.id} provider = {provider}  /> )
         
-      }
-        
-      
-      
+      }   
 
 
   </table>

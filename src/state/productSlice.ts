@@ -36,9 +36,16 @@ const producSlice = createSlice({
             const newState = {...state, products: newList}
 
             return newState
+        },
+
+        findOneProductInReducer(state, action){
+            const newList = [...state.products.filter(product => product.id = action.payload)]
+            const newState = {...state, products: newList}
+
+            return newState
         }
     }
 })
 
 export default producSlice.reducer;
-export const {addProductInReducer, getAllProductsInReducer, deleteProductInReducer} = producSlice.actions
+export const {addProductInReducer, getAllProductsInReducer, deleteProductInReducer, findOneProductInReducer} = producSlice.actions

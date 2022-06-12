@@ -10,7 +10,7 @@ import NewProvider from './pages/NewProvider'
 import ProviderBill from './pages/ProviderBill'
 import Store from './state/Store'
 import './App.css'
-import {productType, providerType} from './types'
+import {productType, providerType, billType} from './types'
 import { useSelector } from 'react-redux'
 import {stateTypeRedux} from './state/Store'
 import GoogleLogIn from './firebase/GoogleLogin'
@@ -53,4 +53,4 @@ function App() {
 }
 
 export default App
-export type {providerType, productType}
+export type {providerType, productType, billType}

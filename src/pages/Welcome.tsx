@@ -6,6 +6,8 @@ import { getAllProducts } from "../actions/productActions";
 import { getAllProductsInReducer } from "../state/productSlice";
 import { getAllProviders } from "../actions/providerActions";
 import { getAllprovidersInReducer } from "../state/providerSlice";
+import { getAllBills } from "../actions/billActions";
+import { getAllBillsInReducer } from "../state/billSlice";
 
 
 const Welcome: React.FunctionComponent = () => {
@@ -22,12 +24,21 @@ const Welcome: React.FunctionComponent = () => {
     }
   }, [])
 
-
   useEffect(()=>{
+    getAllProducts().then(products => {
+      dispatch(getAllProductsInReducer(products))
+    })
     getAllProviders().then(provider => {
       dispatch(getAllprovidersInReducer(provider))
     })
-  })
+    getAllBills().then(bill => {
+      dispatch(getAllBillsInReducer(bill))
+    })
+  }, [])
+
+
+
+
   
   return (
     <h1>Welcome to Raul Store</h1>
