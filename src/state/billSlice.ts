@@ -28,7 +28,6 @@ const billSlice = createSlice({
         },
         getAllBillsInReducer(state, action){
             return {...state, bill:action.payload}
-            //return action.payload
 
         }
 

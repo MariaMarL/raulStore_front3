@@ -20,14 +20,6 @@ const BillForm = () => {
 
     const providers = useSelector((state:stateTypeRedux) => state.productState.products)
 
-    useEffect(()=>{
-      getAllBills().then(bill => {
-        dispatch(getAllBillsInReducer(bill))
-      })
-      console.log("Renderizando bills");
-    
-    }, [])
-
     
     const addBill = async (e:React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
@@ -57,24 +49,26 @@ const BillForm = () => {
    
    
       }
-
   return (
       <div>
           <form onSubmit={(e)=>addBill(e)}>
           
-              <select onChange={(e)=>setProductId(e.target.value)}  name="setProductId">
+              <select onChange={(ev)=>setProductId(ev.target.value)}  name="setProductId">
               {
-                productsAvaible.map(product => <option value={product.id} key={product.id}>{product.name}</option> )
+                productsAvaible.map(product => <option label={product.name} value={product.providerName} key={product.id}></option> )
               }
             </select>
             
+            
             <input type="number" placeholder='Amount' onChange={(e)=>SetAmount(e.target.valueAsNumber)} value={amount} />
+
             
             <select onChange={(e)=>SetProviderId(e.target.value)}  name="SetProviderId">
               {
                 providersAvaible.map(provider => <option value={provider.id} key={provider.id}>{provider.name}</option> )
               }
             </select>
+
 
 
             <button className="delete">add Bill</button>

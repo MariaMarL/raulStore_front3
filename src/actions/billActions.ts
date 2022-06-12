@@ -9,8 +9,6 @@ const HEADERS = {
 export const getAllBills = async ()=>{
     const response = await fetch(`http://localhost:8080/api/providerInvoices`)
     const data = await response.json()
-    console.log("imprimiento este data: "+ data);
-    
     return data
   }
 

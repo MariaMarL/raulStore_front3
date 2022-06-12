@@ -1,11 +1,22 @@
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllBills } from "../../actions/billActions";
+import { getAllBillsInReducer } from "../../state/billSlice";
 import { stateTypeRedux } from "../../state/Store";
 import Bill from "./Bills";
 
 const BillList = () => {
 
-    
+    const dispatch = useDispatch()
     const bills = useSelector((state:stateTypeRedux) => state.bill.bill)
+
+    useEffect(()=>{
+      getAllBills().then(bill => {
+        dispatch(getAllBillsInReducer(bill))
+      })
+      console.log("Renderizando bills");
+    
+    }, [])
         
     return (
     
