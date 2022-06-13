@@ -39,7 +39,8 @@ const GitHubLogin: React.FunctionComponent = () => {
 
       //If the logged in is not succesfull yu will get to this part and with the message you can tell 
       //the user what went wrong
-
+      console.log(error);
+      
 
       // Handle Errors here.
       const errorCode = error.code;
@@ -55,7 +56,9 @@ const GitHubLogin: React.FunctionComponent = () => {
 
   return (
     <div>
-      <button onClick={signInWithGitHubButton}>Log in with GitHub</button>
+      <button 
+      className="px-7 py-3 font-medium text-sm leading-snug uppercase rounded shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full flex justify-center items-center mb-3"
+      onClick={signInWithGitHubButton}>Log in with GitHub</button>
     </div>
   );
 };

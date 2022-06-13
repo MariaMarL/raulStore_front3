@@ -1,28 +1,28 @@
 
 type providerType = {
-    id?: String,
-    name: String,
-    dni: String,
-    phone: String
+    id?: string,
+    name: string,
+    dni: string,
+    phone: string
   }
 
 type productType = {
-  id?: String,
-  name: String,
-  description: String,
+  id?: string,
+  name: string,
+  description: string,
   unitsLeft: number,
   maxUnits: number,
   minUnits: number,
   price: number,
-  providerName: String
+  providerName: string
 }
  
 type billType = {
-  id?: String,
-  productId: String
+  id?: string,
+  productId: string
   amount : number,
-  date: String
-  providerId : String
+  date: string
+  providerId : string
 }
 
   export type {providerType, productType, billType}

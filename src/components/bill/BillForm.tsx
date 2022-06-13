@@ -6,6 +6,9 @@ import { stateTypeRedux } from '../../state/Store';
 import { getAllBills, saveBill } from "../../actions/billActions";
 import billSlice, { addBillInReducer, getAllBillsInReducer } from "../../state/billSlice";
 import Bill from "./Bills";
+import { productType } from "../../types";
+import { updateProduct } from "../../actions/productActions";
+import { updateProductInReduce } from "../../state/productSlice";
 
 
 const BillForm = () => {
@@ -41,6 +44,18 @@ const BillForm = () => {
             
             const provider = await saveBill(billToAdd)
 
+            const productFound = productsAvaible.find(p => p.id === productId)
+            if(productFound){
+              console.log("entrando al if");
+              
+              const productToUpdate: productType ={
+                  ...productFound, 
+                  unitsLeft: productFound.unitsLeft + amount
+              }
+
+              const response = await updateProduct(productToUpdate)
+              dispatch(updateProductInReduce(response))
+            }
             console.log("peticion...");
             
 
@@ -67,7 +82,7 @@ const BillForm = () => {
           
               <select onChange={(ev)=>setProductId(ev.target.value)}  name="setProductId">
               {
-                productsAvaible.map(product => <option label={product.name} value={product.name} key={product.id}>Select</option> )
+                productsAvaible.map(product => <option label={product.name} value={product.id} key={product.id}>Select</option> )
               }
             </select>
             

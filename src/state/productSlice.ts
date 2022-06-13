@@ -1,8 +1,13 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import React from 'react'
+import { productType } from '../types'
 
 
-const initialState={
+interface initialStateInterface{
+    products: productType[]
+}
+
+const initialState:initialStateInterface={
     products:[
         {
             id: "1",
@@ -16,6 +21,7 @@ const initialState={
         }
     ]
 }
+
 
 const producSlice = createSlice({
     name: 'product',
@@ -37,6 +43,9 @@ const producSlice = createSlice({
 
             return newState
         },
+        updateProductInReduce(state, action:PayloadAction<productType>){
+           state.products = state.products.map(p => p.id ===action.payload.id ? action.payload:p)
+        },
 
         findOneProductInReducer(state, action){
             const newList = [...state.products.filter(product => product.id = action.payload)]
@@ -48,4 +57,4 @@ const producSlice = createSlice({
 })
 
 export default producSlice.reducer;
-export const {addProductInReducer, getAllProductsInReducer, deleteProductInReducer, findOneProductInReducer} = producSlice.actions
+export const {addProductInReducer, getAllProductsInReducer, deleteProductInReducer, findOneProductInReducer, updateProductInReduce} = producSlice.actions

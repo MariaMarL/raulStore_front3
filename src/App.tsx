@@ -14,13 +14,10 @@ import './App.css'
 import {productType, providerType, billType} from './types'
 import { useSelector } from 'react-redux'
 import {stateTypeRedux} from './state/Store'
-import GoogleLogIn from './firebase/GoogleLogin'
 import Welcome from './pages/Welcome'
 import SignIn from './firebase/SignIn'
 import LogIn from './firebase/LogI'
 import LogOut from './firebase/LogOut'
-import Home from './pages/Homes'
-
 
 
 
@@ -30,20 +27,20 @@ function App() {
   return (
     <BrowserRouter>
     {user === null?
-      <nav className="navbar">
-        <Link to="/logIn"> Login</Link>
-        <Link to="/signIn"> SignIn</Link>
+      <nav className="navbar relative w-full flex flex-wrap items-center justify-between py-3 bg-gray-900 text-gray-200 shadow-lg navbar navbar-expand-lg navbar-light">
+        <Link to="/logIn" className='text-xl text-white pr-2 font-semibold text-white opacity-60 hover:opacity-80 focus:opacity-80 '> Login</Link>
+        <Link to="/signIn" className='text-xl text-white pr-2 font-semibold text-white opacity-60 hover:opacity-80 focus:opacity-80'> SignIn</Link>
       </nav>
       :
-      <nav className="navbar">
-        <Link to="/welcome">Welcome</Link>
-        <Link to="/MyProviders">MyProviders</Link>
-        <Link to="/NewProvider">NewProvider</Link>
-        <Link to="/MyProducts">MyProducts</Link>
-        <Link to="/NewProduct">NewProduct</Link>
-        <Link to="/ClientInvoice">ClientInvoice</Link>
-        <Link to="/ProviderBill">ProviderBill</Link>
-        <Link to="/logOut">LogOut</Link>
+      <nav className="navbar relative w-full flex flex-wrap items-center justify-between py-3 bg-gray-900 text-gray-200 shadow-lg navbar navbar-expand-lg navbar-light">
+        <Link to="/welcome" className='text-xl text-white pr-2 font-semibold text-white opacity-60 hover:opacity-80 focus:opacity-80 mr-4'>Welcome</Link>
+        <Link to="/MyProviders" className='text-xl text-white pr-2 font-semibold text-white opacity-60 hover:opacity-80 focus:opacity-80 mr-4'>MyProviders</Link>
+        <Link to="/NewProvider" className='text-xl text-white pr-2 font-semibold text-white opacity-60 hover:opacity-80 focus:opacity-80 mr-4'>NewProvider</Link>
+        <Link to="/MyProducts" className='text-xl text-white pr-2 font-semibold text-white opacity-60 hover:opacity-80 focus:opacity-80 mr-4'>MyProducts</Link>
+        <Link to="/NewProduct" className='text-xl text-white pr-2 font-semibold text-white opacity-60 hover:opacity-80 focus:opacity-80 mr-4'>NewProduct</Link>
+        <Link to="/ClientInvoice"className='text-xl text-white pr-2 font-semibold text-white opacity-60 hover:opacity-80 focus:opacity-80 mr-4'>ClientInvoice</Link>
+        <Link to="/ProviderBill" className='text-xl text-white pr-2 font-semibold text-white opacity-60 hover:opacity-80 focus:opacity-80 mr-4'>ProviderBill</Link>
+        <Link to="/logOut" className='text-white opacity-60 hover:opacity-80 focus:opacity-80 mr-4 text-white opacity-60 hover:opacity-80 focus:opacity-80 mr-4'>LogOut</Link>
 
       </nav>
       }
