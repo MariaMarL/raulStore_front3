@@ -4,6 +4,8 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { logInInReducer } from "../state/loggedInSlice";
 import { auth } from "./firebaseConfig";
+import GitHubLogin from "./GitHubLogin";
+import GoogleLogIn from "./GoogleLogin";
 
 
 const LogIn: React.FunctionComponent = () => {
@@ -74,6 +76,9 @@ const LogIn: React.FunctionComponent = () => {
         <button onClick={(e) => logInForm(e)}>Log In</button>
         <br />
       </form>
+      <GoogleLogIn/>
+      <GitHubLogin/>
+
     </div>
   );
 };

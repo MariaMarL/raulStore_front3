@@ -13,8 +13,8 @@ import { getAllBillsInReducer } from "../state/billSlice";
 const Welcome: React.FunctionComponent = () => {
   const {user} = useSelector((state:stateTypeRedux) => state.logged)
 
-  const navigate = useNavigate()
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   console.log(user);
 
   useEffect(()=> {

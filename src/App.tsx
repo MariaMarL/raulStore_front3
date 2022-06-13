@@ -19,6 +19,7 @@ import Welcome from './pages/Welcome'
 import SignIn from './firebase/SignIn'
 import LogIn from './firebase/LogI'
 import LogOut from './firebase/LogOut'
+import Home from './pages/Homes'
 
 
 
@@ -30,9 +31,8 @@ function App() {
     <BrowserRouter>
     {user === null?
       <nav className="navbar">
-        <Link to="/logInGoogle"> Login Google</Link>
-        <Link to="/login">LogIn</Link>
-        <Link to="/signin">SignIn</Link>
+        <Link to="/logIn"> Login</Link>
+        <Link to="/signIn"> SignIn</Link>
       </nav>
       :
       <nav className="navbar">
@@ -48,9 +48,8 @@ function App() {
       </nav>
       }
       <Routes>
-         <Route path="/signin" element={<SignIn/>}/>
-        <Route path="/login" element={<LogIn/>}/>
-        <Route path="logInGoogle" element={<GoogleLogIn />}/>
+        <Route path="/logIn" element={<LogIn/>}/>
+        <Route path="/signIn" element={<SignIn/>}/>
         <Route path="/logOut" element={<LogOut/>}/>
         <Route path="welcome" element={<Welcome/>}/>
         <Route path="/NewProvider" element={<NewProvider />} />
