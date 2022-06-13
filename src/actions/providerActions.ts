@@ -7,7 +7,7 @@ const HEADERS = {
 }
 
 export const getAllProviders = async ()=>{
-    const response = await fetch(`http://localhost:8080/api/providers`)
+    const response = await fetch(`https://backraulstore.herokuapp.com/api/providers`)
     const data = await response.json()
     return data
   }
@@ -19,7 +19,7 @@ export const getAllProviders = async ()=>{
   }
 */
 export const saveProvider = async (provider: providerType) => {
-  const response = await fetch(`http://localhost:8080/api/provider/create`, { method: 'POST', body: JSON.stringify(provider), headers: HEADERS})
+  const response = await fetch(`https://backraulstore.herokuapp.com/api/provider/create`, { method: 'POST', body: JSON.stringify(provider), headers: HEADERS})
   const data = await response.json() as providerType
   return data
 }

@@ -23,5 +23,5 @@ const loggedInSlice = createSlice(
 
 
 export default loggedInSlice.reducer
-
+              
 export const {logInInReducer, logOutInReducer} = loggedInSlice.actions

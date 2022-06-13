@@ -25,6 +25,10 @@ const Welcome: React.FunctionComponent = () => {
   }, [])
 
   useEffect(()=>{
+        if(user=== null){
+      navigate('/logInGoogle')
+      
+    }
     getAllProducts().then(products => {
       dispatch(getAllProductsInReducer(products))
     })

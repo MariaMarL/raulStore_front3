@@ -9,12 +9,17 @@ import NewProduct from './pages/NewProduct'
 import NewProvider from './pages/NewProvider'
 import ProviderBill from './pages/ProviderBill'
 import Store from './state/Store'
+import './table.css'
 import './App.css'
 import {productType, providerType, billType} from './types'
 import { useSelector } from 'react-redux'
 import {stateTypeRedux} from './state/Store'
 import GoogleLogIn from './firebase/GoogleLogin'
 import Welcome from './pages/Welcome'
+import SignIn from './firebase/SignIn'
+import LogIn from './firebase/LogI'
+import LogOut from './firebase/LogOut'
+
 
 
 
@@ -24,22 +29,29 @@ function App() {
   return (
     <BrowserRouter>
     {user === null?
-      <nav>
+      <nav className="navbar">
         <Link to="/logInGoogle"> Login Google</Link>
+        <Link to="/login">LogIn</Link>
+        <Link to="/signin">SignIn</Link>
       </nav>
       :
       <nav className="navbar">
-        <Link className="link" to="/welcome">Welcome</Link>
-        <Link className="link" to="/MyProviders">MyProviders</Link>
-        <Link className="link" to="/NewProvider">NewProvider</Link>
-        <Link className="link" to="/MyProducts">MyProducts</Link>
-        <Link className="link" to="/NewProduct">NewProduct</Link>
-        <Link className="link" to="/ClientInvoice">ClientInvoice</Link>
-        <Link className="link" to="/ProviderBill">ProviderBill</Link>
+        <Link to="/welcome">Welcome</Link>
+        <Link to="/MyProviders">MyProviders</Link>
+        <Link to="/NewProvider">NewProvider</Link>
+        <Link to="/MyProducts">MyProducts</Link>
+        <Link to="/NewProduct">NewProduct</Link>
+        <Link to="/ClientInvoice">ClientInvoice</Link>
+        <Link to="/ProviderBill">ProviderBill</Link>
+        <Link to="/logOut">LogOut</Link>
+
       </nav>
       }
       <Routes>
+         <Route path="/signin" element={<SignIn/>}/>
+        <Route path="/login" element={<LogIn/>}/>
         <Route path="logInGoogle" element={<GoogleLogIn />}/>
+        <Route path="/logOut" element={<LogOut/>}/>
         <Route path="welcome" element={<Welcome/>}/>
         <Route path="/NewProvider" element={<NewProvider />} />
         <Route path="/MyProviders" element={<MyProviders />} />

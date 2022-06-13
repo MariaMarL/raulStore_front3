@@ -22,7 +22,7 @@ const billSlice = createSlice({
         addBillInReducer(state, action){
             const newList = [...state.bill, action.payload]
 
-            const newState = {...state, products:newList}
+            const newState = {...state, bill:newList}
 
             return newState
         },

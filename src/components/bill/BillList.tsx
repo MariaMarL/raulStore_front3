@@ -10,13 +10,6 @@ const BillList = () => {
     const dispatch = useDispatch()
     const bills = useSelector((state:stateTypeRedux) => state.bill.bill)
 
-    useEffect(()=>{
-      getAllBills().then(bill => {
-        dispatch(getAllBillsInReducer(bill))
-      })
-      console.log("Renderizando bills");
-    
-    }, [])
         
     return (
     

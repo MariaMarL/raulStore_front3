@@ -4,7 +4,8 @@ import { addProvidersInReducer } from "../../state/providerSlice";
 import '../../App.css'
 import { stateTypeRedux } from '../../state/Store';
 import { getAllBills, saveBill } from "../../actions/billActions";
-import { addBillInReducer, getAllBillsInReducer } from "../../state/billSlice";
+import billSlice, { addBillInReducer, getAllBillsInReducer } from "../../state/billSlice";
+import Bill from "./Bills";
 
 
 const BillForm = () => {
@@ -16,11 +17,14 @@ const BillForm = () => {
     const [productId, setProductId] = useState('')
     const [amount, SetAmount] = useState<number>()
     const [providerId, SetProviderId] = useState('')
+    const [productToChange, setproductToChange] = useState()
     //const [date, setDate] = useState('')
 
-    const providers = useSelector((state:stateTypeRedux) => state.productState.products)
-
+    const product = useSelector((state:stateTypeRedux) => state.productState.products)
+    product.map(product => product.unitsLeft)
     
+    
+  
     const addBill = async (e:React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         if(productId&&amount){
@@ -49,13 +53,21 @@ const BillForm = () => {
    
    
       }
+
+   /*   const productSelected = (ev:any) => {
+        setProductId(ev)
+        let productChoosen = productsAvaible.filter(product => product.id === ev.id )
+           let productChanged = (...productChoosen, unitsLeft:) productChoosen.unitsLeft += amount
+      }
+*/
+
   return (
       <div>
           <form onSubmit={(e)=>addBill(e)}>
           
               <select onChange={(ev)=>setProductId(ev.target.value)}  name="setProductId">
               {
-                productsAvaible.map(product => <option label={product.name} value={product.providerName} key={product.id}></option> )
+                productsAvaible.map(product => <option label={product.name} value={product.name} key={product.id}>Select</option> )
               }
             </select>
             
@@ -65,7 +77,7 @@ const BillForm = () => {
             
             <select onChange={(e)=>SetProviderId(e.target.value)}  name="SetProviderId">
               {
-                providersAvaible.map(provider => <option value={provider.id} key={provider.id}>{provider.name}</option> )
+                providersAvaible.map(provider => <option value={provider.name} key={provider.id}>{provider.name}</option> )
               }
             </select>
 

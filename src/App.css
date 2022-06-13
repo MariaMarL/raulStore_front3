@@ -1,5 +1,6 @@
 *{
   margin: auto;
+  flex-wrap: wrap;
 }
 .link{
     color: white;

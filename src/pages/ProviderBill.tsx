@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import { getAllBills } from '../actions/billActions'
 import { getAllProducts } from '../actions/productActions'
 import { getAllProviders } from '../actions/providerActions'
@@ -9,22 +10,29 @@ import BillList from '../components/bill/BillList'
 import { getAllBillsInReducer } from '../state/billSlice'
 import { getAllProductsInReducer } from '../state/productSlice'
 import { getAllprovidersInReducer } from '../state/providerSlice'
+import { stateTypeRedux } from '../state/Store'
 
 const ProviderBill = () => {
 
   const dispatch = useDispatch()
   
+  const {user} = useSelector((state:stateTypeRedux) => state.logged)
+
+  const navigate = useNavigate()
+  console.log(user);
+
+  
   useEffect(()=>{
+    if(user=== null){
+      navigate('/')
+      
+    }
     getAllProducts().then(products => {
       dispatch(getAllProductsInReducer(products))
     })
     getAllProviders().then(providers =>{
       dispatch(getAllprovidersInReducer(providers))
     })
-    getAllBills().then(bill => {
-      dispatch(getAllBillsInReducer(bill))
-    })
-
     console.log("Renderizando bills");
     
   }, [])
