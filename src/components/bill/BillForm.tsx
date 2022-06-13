@@ -18,6 +18,7 @@ const BillForm = () => {
     const dispatch = useDispatch() //para dispatchar un metodo
 
     const [productId, setProductId] = useState('')
+    const [productName, setProductName] = useState('')
     const [amount, SetAmount] = useState<number>()
     const [providerId, SetProviderId] = useState('')
     const [productToChange, setproductToChange] = useState()
@@ -74,7 +75,8 @@ const BillForm = () => {
         let productChoosen = productsAvaible.filter(product => product.id === ev.id )
            let productChanged = (...productChoosen, unitsLeft:) productChoosen.unitsLeft += amount
       }
-*/
+*/      
+
 
   return (
       <div>
